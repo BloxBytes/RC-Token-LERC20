@@ -14,10 +14,6 @@ In-depth documentation on Lossless V3 is available at [lossless.cash](https://lo
 
 # ELysium
 
-## Base LERC20 : /contracts/utils/LERC20.sol
+## Base RC LERC20 : /contracts/utils/RebelCar.sol
 
-## Mintable + Burnable LERC20: /contracts/utils/LERC20MintableBurnable-PYR.sol
 
-## Wrapped version of LERC20: /contracts/utils/LERC20-WLAVA.sol
-
-## Base LERC20 with create2 feature : /contracts/utils/LERC20_create2.sol
