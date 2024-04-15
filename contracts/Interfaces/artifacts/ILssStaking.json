@@ -1,0 +1,422 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"ropsten:3": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"rinkeby:4": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"kovan:42": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"goerli:5": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"gasEstimates": null,
+		"methodIdentifiers": {
+			"getIsAccountStaked(uint256,address)": "5b38b511",
+			"getStakerCoefficient(uint256,address)": "3a719d58",
+			"getVersion()": "0d8e6e2c",
+			"losslessController()": "fc0cf012",
+			"losslessGovernance()": "d0ab1226",
+			"losslessReporting()": "0a187b22",
+			"pause()": "8456cb59",
+			"setLosslessGovernance(address)": "c8eca387",
+			"setLssReporting(address)": "6c5ec212",
+			"setStakingAmount(uint256)": "3f230872",
+			"setStakingToken(address)": "1e9b12ef",
+			"stake(uint256)": "a694fc3a",
+			"stakerClaim(uint256)": "d5cb96d8",
+			"stakerClaimableAmount(uint256)": "38274599",
+			"stakingAmount()": "739a3e02",
+			"stakingToken()": "72f702f3",
+			"unpause()": "3f4ba83a"
+		}
+	},
+	"abi": [
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "contract ILssGovernance",
+					"name": "_newContract",
+					"type": "address"
+				}
+			],
+			"name": "NewGovernanceContract",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "contract ILssReporting",
+					"name": "_newContract",
+					"type": "address"
+				}
+			],
+			"name": "NewReportingContract",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "contract ILERC20",
+					"name": "_token",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "_account",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "uint256",
+					"name": "_reportId",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "_amount",
+					"type": "uint256"
+				}
+			],
+			"name": "NewStake",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "uint256",
+					"name": "_newAmount",
+					"type": "uint256"
+				}
+			],
+			"name": "NewStakingAmount",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "contract ILERC20",
+					"name": "_newToken",
+					"type": "address"
+				}
+			],
+			"name": "NewStakingToken",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "_staker",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "contract ILERC20",
+					"name": "_token",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "uint256",
+					"name": "_reportID",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "_amount",
+					"type": "uint256"
+				}
+			],
+			"name": "StakerClaim",
+			"type": "event"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_reportId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "_account",
+					"type": "address"
+				}
+			],
+			"name": "getIsAccountStaked",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_reportId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "_address",
+					"type": "address"
+				}
+			],
+			"name": "getStakerCoefficient",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getVersion",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "pure",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "losslessController",
+			"outputs": [
+				{
+					"internalType": "contract ILssController",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "losslessGovernance",
+			"outputs": [
+				{
+					"internalType": "contract ILssGovernance",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "losslessReporting",
+			"outputs": [
+				{
+					"internalType": "contract ILssReporting",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "pause",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "contract ILssGovernance",
+					"name": "_losslessGovernance",
+					"type": "address"
+				}
+			],
+			"name": "setLosslessGovernance",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "contract ILssReporting",
+					"name": "_losslessReporting",
+					"type": "address"
+				}
+			],
+			"name": "setLssReporting",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_stakingAmount",
+					"type": "uint256"
+				}
+			],
+			"name": "setStakingAmount",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "contract ILERC20",
+					"name": "_stakingToken",
+					"type": "address"
+				}
+			],
+			"name": "setStakingToken",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_reportId",
+					"type": "uint256"
+				}
+			],
+			"name": "stake",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_reportId",
+					"type": "uint256"
+				}
+			],
+			"name": "stakerClaim",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_reportId",
+					"type": "uint256"
+				}
+			],
+			"name": "stakerClaimableAmount",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "stakingAmount",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "stakingToken",
+			"outputs": [
+				{
+					"internalType": "contract ILERC20",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "unpause",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	]
+}

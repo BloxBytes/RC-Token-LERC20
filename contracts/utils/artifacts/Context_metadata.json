@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.8.4+commit.c7e474f2"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Lossless_create2-main/contracts/utils/Context.sol": "Context"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Lossless_create2-main/contracts/utils/Context.sol": {
+			"keccak256": "0x3f46b810830ac5a2facae13dcd022ab7e328444a5477f3d3fa4840a5877e7614",
+			"license": "Unlicense",
+			"urls": [
+				"bzz-raw://f8cadee9b7615a46417484100880443430353fd498f455e8275c07b0a4f11553",
+				"dweb:/ipfs/Qmd3jqTj75NRKqkwLCB7LM2nDeKtCFHfTcAkAV7iCaepmx"
+			]
+		}
+	},
+	"version": 1
+}

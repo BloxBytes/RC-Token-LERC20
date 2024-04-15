@@ -1,0 +1,436 @@
+{
+	"compiler": {
+		"version": "0.8.4+commit.c7e474f2"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "contract ILssGovernance",
+						"name": "_newContract",
+						"type": "address"
+					}
+				],
+				"name": "NewGovernanceContract",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "contract ILssReporting",
+						"name": "_newContract",
+						"type": "address"
+					}
+				],
+				"name": "NewReportingContract",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "contract ILERC20",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_account",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "_reportId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "NewStake",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "_newAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "NewStakingAmount",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "contract ILERC20",
+						"name": "_newToken",
+						"type": "address"
+					}
+				],
+				"name": "NewStakingToken",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_staker",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "contract ILERC20",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "_reportID",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "StakerClaim",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_reportId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_account",
+						"type": "address"
+					}
+				],
+				"name": "getIsAccountStaked",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_reportId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "getStakerCoefficient",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getVersion",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "losslessController",
+				"outputs": [
+					{
+						"internalType": "contract ILssController",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "losslessGovernance",
+				"outputs": [
+					{
+						"internalType": "contract ILssGovernance",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "losslessReporting",
+				"outputs": [
+					{
+						"internalType": "contract ILssReporting",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "pause",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract ILssGovernance",
+						"name": "_losslessGovernance",
+						"type": "address"
+					}
+				],
+				"name": "setLosslessGovernance",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract ILssReporting",
+						"name": "_losslessReporting",
+						"type": "address"
+					}
+				],
+				"name": "setLssReporting",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_stakingAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "setStakingAmount",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract ILERC20",
+						"name": "_stakingToken",
+						"type": "address"
+					}
+				],
+				"name": "setStakingToken",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_reportId",
+						"type": "uint256"
+					}
+				],
+				"name": "stake",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_reportId",
+						"type": "uint256"
+					}
+				],
+				"name": "stakerClaim",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_reportId",
+						"type": "uint256"
+					}
+				],
+				"name": "stakerClaimableAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "stakingAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "stakingToken",
+				"outputs": [
+					{
+						"internalType": "contract ILERC20",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "unpause",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Lossless_create2-main/contracts/Interfaces/ILosslessStaking.sol": "ILssStaking"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Lossless_create2-main/contracts/Interfaces/ILosslessController.sol": {
+			"keccak256": "0x515aa812cda6314239819be04daa331b3253fe4b48d1dad2289c0bf0e558f4ed",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://cc2c1c347ca1440c186f162d3fd907b82b9ab7094a8ef644d28f0e53a7e68c4f",
+				"dweb:/ipfs/QmdwDFbd9XrMV5r2eUY5ukxMAzUAmgUxoQwjqsXmKbhWxe"
+			]
+		},
+		"Lossless_create2-main/contracts/Interfaces/ILosslessERC20.sol": {
+			"keccak256": "0x3d128899b6b151f50ea0b84f3440e5eba36e7a1951c99a81529630e83459039a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://906c888155113928da8fe1ed1239ab5efd6af8790521ad168a074c4fef6aa4b2",
+				"dweb:/ipfs/QmRhhMs6FsmLVPXLxCkrRuqQ7NL1K34abig2U4Uyf4jSs5"
+			]
+		},
+		"Lossless_create2-main/contracts/Interfaces/ILosslessGovernance.sol": {
+			"keccak256": "0xfcb8f98887c8fa3699d577288941bb8455fbbde443fcef6d34ba104b9531ea94",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://cf9ea876b61e892bcda7af45aa8f1d800422140b1d5888dc4ac1f355586dd90e",
+				"dweb:/ipfs/QmW1BkSWafxdGaNFx4X1tzk68DvhsCKu5Yte7GJLsL9qfn"
+			]
+		},
+		"Lossless_create2-main/contracts/Interfaces/ILosslessReporting.sol": {
+			"keccak256": "0xeb36118ac143927771cf34ddfffe15b3759d318f3aa8db9c7dd979c6f32b4cd7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1fa38f302e87a4e466127c2e832538a4b6edd802a0ef30d1bc73dd51f76a37f3",
+				"dweb:/ipfs/QmPJGvj12GR1WWxmZ7D8YKKiqC9aLQqVpgKc6R52BiEMhs"
+			]
+		},
+		"Lossless_create2-main/contracts/Interfaces/ILosslessStaking.sol": {
+			"keccak256": "0x2f4c4c977505e685bea2a2c1ec221e602c3b40a350c4c9a8105021f163b295f8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://67178fa5b71d6d5ca3851707fd3558a786da8219f3548cd11400f6f0010b9a4a",
+				"dweb:/ipfs/QmTnN8pyrwiUiXgZn86FWLtTaGC21e3UtJpgoyHb6gVvjD"
+			]
+		},
+		"Lossless_create2-main/contracts/Interfaces/IProtectionStrategy.sol": {
+			"keccak256": "0x5461a219e4dd7cc655c74210922e65bfe3f53d815d124bb49c28ce0bf676d0ca",
+			"urls": [
+				"bzz-raw://e0e812553152aa8713369187185e1606bd7e4f40d94ad769688329651d1ab846",
+				"dweb:/ipfs/QmRTBE8AGdiYB9VkEuaRGqDTqhYGR1KmkiD2vXqJ4PqVQP"
+			]
+		}
+	},
+	"version": 1
+}

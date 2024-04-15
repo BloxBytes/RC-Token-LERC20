@@ -1,0 +1,1033 @@
+{
+	"compiler": {
+		"version": "0.8.20+commit.a1b79de6"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "totalSupply_",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "name_",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "symbol_",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "admin_",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "recoveryAdmin_",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timelockPeriod_",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "lossless_",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_owner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_spender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					}
+				],
+				"name": "Approval",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [],
+				"name": "LosslessOff",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [],
+				"name": "LosslessOn",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_turnOffDate",
+						"type": "uint256"
+					}
+				],
+				"name": "LosslessTurnOffProposal",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_newAdmin",
+						"type": "address"
+					}
+				],
+				"name": "NewAdmin",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_newAdmin",
+						"type": "address"
+					}
+				],
+				"name": "NewRecoveryAdmin",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_candidate",
+						"type": "address"
+					}
+				],
+				"name": "NewRecoveryAdminProposal",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "previousAdminRole",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "newAdminRole",
+						"type": "bytes32"
+					}
+				],
+				"name": "RoleAdminChanged",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					}
+				],
+				"name": "RoleGranted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					}
+				],
+				"name": "RoleRevoked",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					}
+				],
+				"name": "Transfer",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "DEFAULT_ADMIN_ROLE",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "MINTER_ROLE",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "key",
+						"type": "bytes"
+					}
+				],
+				"name": "acceptRecoveryAdminOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "admin",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					}
+				],
+				"name": "allowance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "approve",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "balanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "burn",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "burnFrom",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "decimals",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "subtractedValue",
+						"type": "uint256"
+					}
+				],
+				"name": "decreaseAllowance",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "executeLosslessTurnOff",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "executeLosslessTurnOn",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAdmin",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					}
+				],
+				"name": "getRoleAdmin",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "grantMinterRole",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "grantRole",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "hasMinterRole",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "hasRole",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "addedValue",
+						"type": "uint256"
+					}
+				],
+				"name": "increaseAllowance",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "isLosslessOn",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "lossless",
+				"outputs": [
+					{
+						"internalType": "contract ILssController",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "losslessTurnOffTimestamp",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "mint",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "name",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "proposeLosslessTurnOff",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "recoveryAdmin",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "renounceRole",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "revokeMinterRole",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "revokeRole",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newAdmin",
+						"type": "address"
+					}
+				],
+				"name": "setLosslessAdmin",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "interfaceId",
+						"type": "bytes4"
+					}
+				],
+				"name": "supportsInterface",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "symbol",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "timelockPeriod",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalSupply",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "transfer",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "transferFrom",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "from",
+						"type": "address[]"
+					}
+				],
+				"name": "transferOutBlacklistedFunds",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "candidate",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "keyHash",
+						"type": "bytes32"
+					}
+				],
+				"name": "transferRecoveryAdminOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"events": {
+				"RoleAdminChanged(bytes32,bytes32,bytes32)": {
+					"details": "Emitted when `newAdminRole` is set as ``role``'s admin role, replacing `previousAdminRole` `DEFAULT_ADMIN_ROLE` is the starting admin for all roles, despite {RoleAdminChanged} not being emitted signaling this. _Available since v3.1._"
+				},
+				"RoleGranted(bytes32,address,address)": {
+					"details": "Emitted when `account` is granted `role`. `sender` is the account that originated the contract call, an admin role bearer except when using {AccessControl-_setupRole}."
+				},
+				"RoleRevoked(bytes32,address,address)": {
+					"details": "Emitted when `account` is revoked `role`. `sender` is the account that originated the contract call:   - if using `revokeRole`, it is the admin role bearer   - if using `renounceRole`, it is the role bearer (i.e. `account`)"
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"getRoleAdmin(bytes32)": {
+					"details": "Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. To change a role's admin, use {_setRoleAdmin}."
+				},
+				"grantRole(bytes32,address)": {
+					"details": "Grants `role` to `account`. If `account` had not been already granted `role`, emits a {RoleGranted} event. Requirements: - the caller must have ``role``'s admin role. May emit a {RoleGranted} event."
+				},
+				"hasRole(bytes32,address)": {
+					"details": "Returns `true` if `account` has been granted `role`."
+				},
+				"renounceRole(bytes32,address)": {
+					"details": "Revokes `role` from the calling account. Roles are often managed via {grantRole} and {revokeRole}: this function's purpose is to provide a mechanism for accounts to lose their privileges if they are compromised (such as when a trusted device is misplaced). If the calling account had been revoked `role`, emits a {RoleRevoked} event. Requirements: - the caller must be `account`. May emit a {RoleRevoked} event."
+				},
+				"revokeRole(bytes32,address)": {
+					"details": "Revokes `role` from `account`. If `account` had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must have ``role``'s admin role. May emit a {RoleRevoked} event."
+				},
+				"supportsInterface(bytes4)": {
+					"details": "See {IERC165-supportsInterface}."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Lossless_create2-main 2/contracts/utils/LERC20Role.sol": "R"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Lossless_create2-main 2/contracts/Interfaces/ILosslessController.sol": {
+			"keccak256": "0x515aa812cda6314239819be04daa331b3253fe4b48d1dad2289c0bf0e558f4ed",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://cc2c1c347ca1440c186f162d3fd907b82b9ab7094a8ef644d28f0e53a7e68c4f",
+				"dweb:/ipfs/QmdwDFbd9XrMV5r2eUY5ukxMAzUAmgUxoQwjqsXmKbhWxe"
+			]
+		},
+		"Lossless_create2-main 2/contracts/Interfaces/ILosslessERC20.sol": {
+			"keccak256": "0x3d128899b6b151f50ea0b84f3440e5eba36e7a1951c99a81529630e83459039a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://906c888155113928da8fe1ed1239ab5efd6af8790521ad168a074c4fef6aa4b2",
+				"dweb:/ipfs/QmRhhMs6FsmLVPXLxCkrRuqQ7NL1K34abig2U4Uyf4jSs5"
+			]
+		},
+		"Lossless_create2-main 2/contracts/Interfaces/ILosslessGovernance.sol": {
+			"keccak256": "0xfcb8f98887c8fa3699d577288941bb8455fbbde443fcef6d34ba104b9531ea94",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://cf9ea876b61e892bcda7af45aa8f1d800422140b1d5888dc4ac1f355586dd90e",
+				"dweb:/ipfs/QmW1BkSWafxdGaNFx4X1tzk68DvhsCKu5Yte7GJLsL9qfn"
+			]
+		},
+		"Lossless_create2-main 2/contracts/Interfaces/ILosslessReporting.sol": {
+			"keccak256": "0xeb36118ac143927771cf34ddfffe15b3759d318f3aa8db9c7dd979c6f32b4cd7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1fa38f302e87a4e466127c2e832538a4b6edd802a0ef30d1bc73dd51f76a37f3",
+				"dweb:/ipfs/QmPJGvj12GR1WWxmZ7D8YKKiqC9aLQqVpgKc6R52BiEMhs"
+			]
+		},
+		"Lossless_create2-main 2/contracts/Interfaces/ILosslessStaking.sol": {
+			"keccak256": "0x2f4c4c977505e685bea2a2c1ec221e602c3b40a350c4c9a8105021f163b295f8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://67178fa5b71d6d5ca3851707fd3558a786da8219f3548cd11400f6f0010b9a4a",
+				"dweb:/ipfs/QmTnN8pyrwiUiXgZn86FWLtTaGC21e3UtJpgoyHb6gVvjD"
+			]
+		},
+		"Lossless_create2-main 2/contracts/Interfaces/IProtectionStrategy.sol": {
+			"keccak256": "0x5461a219e4dd7cc655c74210922e65bfe3f53d815d124bb49c28ce0bf676d0ca",
+			"urls": [
+				"bzz-raw://e0e812553152aa8713369187185e1606bd7e4f40d94ad769688329651d1ab846",
+				"dweb:/ipfs/QmRTBE8AGdiYB9VkEuaRGqDTqhYGR1KmkiD2vXqJ4PqVQP"
+			]
+		},
+		"Lossless_create2-main 2/contracts/utils/Copy_AccessControl/AccessControl.sol": {
+			"keccak256": "0x545b60eb0363eade3bffa8fde25f63c185a7055283d9282f9e2d58002a1250fb",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://df98bb5e819a9be384189c6cbb73e9a09d47e7142b7ec2885e1965eb06b077be",
+				"dweb:/ipfs/Qma7ktBB29hxeHfqnqp2eEJqPNZnC8RUf6tpn5EaYLcAcd"
+			]
+		},
+		"Lossless_create2-main 2/contracts/utils/Copy_AccessControl/IAccessControl.sol": {
+			"keccak256": "0x6edba116c3de120257f96a0e2cf286645d5b3317a06a20cbf933f1fa2166d7f6",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e2ae40556690160edd76ca00a6a2f88947d127cb1de0d5ac4ae373d118eaecb7",
+				"dweb:/ipfs/QmTuNz3XMXdbtLA5YQzdrXxYvpqiTpjegk2EuLeSRmrAHL"
+			]
+		},
+		"Lossless_create2-main 2/contracts/utils/Copy_AccessControl/utils/Context.sol": {
+			"keccak256": "0x2d9821ede311a3c16183811be8bdc666e88c69d9d50321e3dff025fe7630d373",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3719bc7fe267a79e84641b88901b10dbc58d27edaea65b7811d39ca7d2a3e409",
+				"dweb:/ipfs/QmRDDpaByM3MhWs61gXmfaxoygifCJhLvguEFDGahhWMfX"
+			]
+		},
+		"Lossless_create2-main 2/contracts/utils/Copy_AccessControl/utils/Strings.sol": {
+			"keccak256": "0xae58ced4c1ca31b22f409c0de6aef8a300d5bd99cc7b56b488c65c8bde5080b9",
+			"urls": [
+				"bzz-raw://db7588edd3da04904a3f2331e3516524fb09c5b2e9aecc9c870920a95fc5a0cc",
+				"dweb:/ipfs/QmVZekhBDy4VMcKm97mNAtrZJeRsvLoSVYtdVtEMCHGsJo"
+			]
+		},
+		"Lossless_create2-main 2/contracts/utils/Copy_AccessControl/utils/introspection/ERC165.sol": {
+			"keccak256": "0x007e2f7272ae11ad26d41ab057568d7db5d17cd0a38b4bc68a38aba88abd69e4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0b687dd9507abe6777e3ad535dc8add5ad634b1ea229a9b56ce3d92410adedab",
+				"dweb:/ipfs/QmfZWeGWnnD4nGZn8L853PiKdqMHcSKCTLj5dfSvmB3ZzR"
+			]
+		},
+		"Lossless_create2-main 2/contracts/utils/Copy_AccessControl/utils/introspection/IERC165.sol": {
+			"keccak256": "0xa36a31b4bb17fad88d023474893b3b895fa421650543b1ce5aefc78efbd43244",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0f235b9175d95111f301d729566e214c32559e55a2b0579c947484748e20679d",
+				"dweb:/ipfs/QmSsNBuPejy1wNe2u3JSt2p9wFhrjvBjFrnAaNe1nDNkEA"
+			]
+		},
+		"Lossless_create2-main 2/contracts/utils/Copy_AccessControl/utils/math/Math.sol": {
+			"keccak256": "0xc2462f032525b5186ac5125ef68be2393a973ebdc314ddb3a386c7f4665e9712",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://37222fbb4d5b066b8cd32ca645d1aa771dd95138d6890b3e909ee8561479dfd4",
+				"dweb:/ipfs/QmRRG28kGYRU1FGgGRfFgbbxvqx3PLAF7Davjsms9JGuA2"
+			]
+		},
+		"Lossless_create2-main 2/contracts/utils/LERC20Role.sol": {
+			"keccak256": "0x898267ac4281629075ba9accc1b647100185e3ae1062cbf863263c3e17cdde46",
+			"license": "Unlicense",
+			"urls": [
+				"bzz-raw://e785ae69ea2ef1e2ad44fa75b29ff037e7dc54a87af738edcd94b00db46500f6",
+				"dweb:/ipfs/QmZgFRhTV6GgiQwx8argDrZnhRiMy1g5rnNzLfk9f46nLb"
+			]
+		}
+	},
+	"version": 1
+}
